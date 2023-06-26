@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../Context/GlobalState";
 
 const AddEmployee = () => {
+   
    const [name, setName] = useState("");
    const [location, setLocation] = useState("");
    const [designation, setDesignation] = useState("");
@@ -11,17 +12,17 @@ const AddEmployee = () => {
    const navigate = useNavigate();
 
    const handleSubmit = (e)=>{
-      e.preventDefault();
       const newEmployee= {
          id: employees.length + 1,
          name,
          location,
-         designation
+         designation,
       }
       addEmployee(newEmployee);
-      localStorage.setItem("EmployeeDetails", JSON.stringify([...employees, newEmployee]));
-      navigate("/"); 
-      console.log(newEmployee);
+      localStorage.setItem("EmployeeDetails", JSON.stringify([ ...employees, newEmployee ]));
+      e.preventDefault();
+      // navigate("/");    
+      // console.log(newEmployee);
    }
 
    return (
