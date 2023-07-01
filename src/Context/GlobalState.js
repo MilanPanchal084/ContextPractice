@@ -24,12 +24,12 @@ export const GlobalProvider = ({ children }) => {
       });
     }
 
-   // const removeEmployee = (id) => {
-   //     dispatch({
-   //         type: "REMOVE_EMPLOYEE",
-   //         // payload: id,
-   //     });
-   // }
+   const removeEmployee = (id) => {
+       dispatch({
+           type: "REMOVE_EMPLOYEE",
+           payload: id,
+       });
+   }
 
    // const editEmployee = (employees) => {
    //     dispatch({
@@ -43,7 +43,7 @@ export const GlobalProvider = ({ children }) => {
          value={{
             employees: state.employees,
             addEmployee,
-            // removeEmployee,
+            removeEmployee,
             // editEmployee
          }}
       >

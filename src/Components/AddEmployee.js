@@ -1,29 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../Context/GlobalState";
 
 const AddEmployee = () => {
-   
    const [name, setName] = useState("");
    const [location, setLocation] = useState("");
    const [designation, setDesignation] = useState("");
+   const [employeeState, setEmployeeState] = useState({});
    const { addEmployee, employees } = useContext(GlobalContext);
-   
+
    const navigate = useNavigate();
 
-   const handleSubmit = (e)=>{
-      const newEmployee= {
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      const newEmployee = {
          id: employees.length + 1,
          name,
          location,
          designation,
-      }
+      };
+      // setEmployeeState(newEmployee);
       addEmployee(newEmployee);
       localStorage.setItem("EmployeeDetails", JSON.stringify([ ...employees, newEmployee ]));
-      e.preventDefault();
-      // navigate("/");    
+      navigate("/"); 
       // console.log(newEmployee);
-   }
+   };
+
+   // useEffect(() => {
+   //    localStorage.setItem(
+   //       "EmployeeDetails",
+   //       JSON.stringify([...employees, employeeState])
+   //    );
+   // }, []);
 
    return (
       <>
@@ -76,7 +84,9 @@ const AddEmployee = () => {
                      <button className="btn btn-primary">Add Employee</button>
                   </div>
                   <div>
-                     <Link to="/" className="btn btn-danger">Cancel</Link>
+                     <Link to="/" className="btn btn-danger">
+                        Cancel
+                     </Link>
                   </div>
                </div>
             </form>
