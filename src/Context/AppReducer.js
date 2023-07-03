@@ -12,18 +12,18 @@ function AppReducer(state, action) {
                (employee) => employee.id !== action.payload
             ),
          };
-      //  case "EDIT_EMPLOYEES":
-      //     const updatedEmployee = action.payload;
-      //     const updatedEmployees = state.employees.map((employee) => {
-      //        if (employee.id === updatedEmployee.id) {
-      //           return updatedEmployee;
-      //        }
-      //        return employee;
-      //     });
-      //    return {
-      //        ...state,
-      //        employees: updatedEmployees,
-      //     };
+       case "EDIT_EMPLOYEES":
+          const updatedEmployee = action.payload;
+          const updatedEmployees = state.employees.map((employee) => {
+             if (employee.id === updatedEmployee.id) {
+                return updatedEmployee;
+             }
+             return employee;
+          });
+         return {
+             ...state,
+             employees: updatedEmployees,
+          };
       default:
          return state;
    }

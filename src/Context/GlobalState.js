@@ -31,12 +31,12 @@ export const GlobalProvider = ({ children }) => {
        });
    }
 
-   // const editEmployee = (employees) => {
-   //     dispatch({
-   //         type: 'EDIT_EMPLOYEES',
-   //         payload: employees,
-   //     })
-   // }
+   const editEmployee = (employees) => {
+       dispatch({
+           type: 'EDIT_EMPLOYEES',
+           payload: employees,
+       })
+   }
 
    return (
       <GlobalContext.Provider
@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
             employees: state.employees,
             addEmployee,
             removeEmployee,
-            // editEmployee
+            editEmployee
          }}
       >
          {children}
