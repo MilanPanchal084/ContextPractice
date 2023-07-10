@@ -32,7 +32,30 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.search-employee{
+  content: "";
+  background: transparent url('/src/Images/images.png') no-repeat 5% center;
+  background-size: 18px 18px;
+}
+
+.search-employee:focus{
+  transition: background ease-out 1s;
+  background: transparent url('/src/Images/images.png') no-repeat 95% center;
+  background-size: 18px 18px;
+}
+/* .search-employee{
+  transition: background ease-out 1s;
+  background: transparent url('/src/Images/images.png') no-repeat 95% center;
+  background-size: 18px 18px;
+} */
+
+.addBtn{
+  transition: all ease 1s;
 }

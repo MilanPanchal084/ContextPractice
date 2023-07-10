@@ -24,7 +24,7 @@ function AppReducer(state, action) {
              ...state,
              employees: updatedEmployees,
           };
-      default:
+      default: 
          return state;
    }
 }
